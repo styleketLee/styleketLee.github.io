@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공수달력 개인정보처리방침</title>
+<style>
+  :root {
+    --bg: #F6F8F3; --text: #15281F; --sub: #50645A; --brand: #2E7D5B; --rule: #B9D4C4; --box: #E4F0E8;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111A15; --text: #E6EEE9; --sub: #A7B8AE; --brand: #6CC49A; --rule: #2C4236; --box: #1A2A21; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    font-size: 16px; line-height: 1.7; word-break: keep-all; overflow-wrap: break-word;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 28px 16px 56px; }
+  h1 { font-size: 24px; line-height: 1.35; margin: 0 0 4px; }
+  .meta { color: var(--sub); font-size: 14px; margin: 0 0 20px; }
+  h2 { font-size: 18px; margin: 32px 0 8px; padding-top: 14px; border-top: 2px solid var(--brand); color: var(--brand); }
+  p, ul { margin: 0 0 12px; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  .summary { background: var(--box); border-radius: 12px; padding: 14px 16px; margin: 0 0 8px; }
+  .summary p:last-child { margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 0 0 12px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--rule); }
+  th { width: 34%; color: var(--sub); font-weight: 600; }
+  a { color: var(--brand); }
+  .small { font-size: 14px; color: var(--sub); }
+</style>
+</head>
+<body>
+<main>
+  <h1>공수달력 개인정보처리방침</h1>
+  <p class="meta">개발자: 우주다람쥐 · 시행일: 2026년 11월 18일</p>
+
+  <div class="summary">
+    <p><strong>요약</strong></p>
+    <p>공수달력은 회원가입 · 로그인이 없고, 사용자가 적은 공수 · 일당 · 일비 · 메모를 개발자 서버로 보내지 않습니다. 기록은 사용자의 휴대폰 안에만 저장됩니다.</p>
+    <p>다만 화면 아래 배너 광고를 보여 주기 위해 Google AdMob 광고 SDK가 들어 있으며, 이 SDK는 Google의 정책에 따라 광고 ID 등 기기 정보를 Google로 보냅니다(아래 3번).</p>
+  </div>
+
+  <h2>1. 앱이 휴대폰 안에 저장하는 정보</h2>
+  <p>사용자가 앱에 직접 넣은 다음 내용을 휴대폰 안에만 저장합니다.</p>
+  <ul>
+    <li>날짜별 공수, 그날만 다른 일당, 일비, 메모</li>
+    <li>기본 일당과 바뀐 날짜, 정산 시작일, 공제율</li>
+    <li>앱 사용 상태(앱 평가 요청 창을 띄운 횟수와 날짜 등)</li>
+  </ul>
+  <p>저장 위치는 Android 앱 전용 저장 공간(Capacitor Preferences, Android SharedPreferences)과 앱 화면(WebView)의 localStorage입니다. 같은 내용을 두 곳에 함께 저장해 기록을 잃지 않게 합니다.</p>
+  <p>개발자는 이 기록을 받아 보거나 열람할 수 없습니다. 앱 자체에는 기록을 서버로 보내는 기능, 분석 도구, 위치 · 연락처 · 사진 · 카메라 · 마이크 접근 기능이 없습니다.</p>
+
+  <h2>2. Android 자동 백업</h2>
+  <p>이 앱은 Android의 앱 데이터 자동 백업을 허용하도록 설정되어 있습니다(<code>android:allowBackup="true"</code>). 사용자의 휴대폰에서 Google 백업이 켜져 있으면, Android가 위 1번의 기록을 사용자의 Google 계정 백업에 포함하고 새 휴대폰에서 앱을 설치할 때 되살릴 수 있습니다.</p>
+  <p>이 백업은 사용자의 Google 계정과 Android가 관리하며, 개발자에게 전달되지 않습니다. 백업을 원하지 않으면 휴대폰의 설정 &gt; Google &gt; 백업(기기마다 이름이 다를 수 있음)에서 끌 수 있습니다.</p>
+
+  <h2>3. 광고(Google AdMob)</h2>
+  <p>홈 · 정산 · 설정 화면 아래에 Google AdMob 배너 광고가 표시됩니다. 광고는 Google LLC가 제공하며, 광고 SDK(Google Mobile Ads SDK)는 Google이 공개한 안내에 따라 다음 정보를 <strong>자동으로 수집해 Google로 보냅니다</strong>. 이 정보는 앱 개발자가 아니라 Google이 받습니다.</p>
+  <table>
+    <tr><th>IP 주소</th><td>기기의 IP 주소. 기기의 대략적인 위치를 추정하는 데 쓰일 수 있습니다.</td></tr>
+    <tr><th>앱 사용 정보</th><td>앱 실행, 탭, 동영상 조회 등 광고 · 앱과의 상호작용 정보</td></tr>
+    <tr><th>진단 정보</th><td>앱과 SDK의 성능 정보(앱 실행 시간, 멈춤 비율, 에너지 사용량 등)</td></tr>
+    <tr><th>기기 · 계정 식별자</th><td>Android 광고 ID, 앱 세트 ID, 해당되는 경우 기기에 로그인된 계정과 관련된 식별자</td></tr>
+  </table>
+  <ul>
+    <li>목적: 광고 제공, 분석, 부정 행위 방지</li>
+    <li>전송 보호: Google은 이 SDK가 수집하는 모든 정보가 전송 중 TLS로 암호화된다고 밝히고 있습니다.</li>
+    <li>받는 곳: Google LLC(미국). 정보는 Google의 서버(국외 포함)로 전송되어 Google의 개인정보처리방침에 따라 처리됩니다.</li>
+    <li>광고 ID 재설정 · 삭제: 휴대폰의 설정 &gt; 개인정보 보호(또는 Google) &gt; 광고에서 광고 ID를 재설정하거나 삭제할 수 있습니다.</li>
+  </ul>
+  <p>Google이 정보를 어떻게 처리하는지는 다음 문서를 참고해 주세요.</p>
+  <ul>
+    <li><a href="https://policies.google.com/privacy?hl=ko">Google 개인정보처리방침</a></li>
+    <li><a href="https://policies.google.com/technologies/partner-sites?hl=ko">Google 서비스를 사용하는 사이트 또는 앱의 정보를 Google이 사용하는 방법</a></li>
+  </ul>
+  <p class="small">근거: Google 공식 문서 「Data disclosure for Google Play's Data safety section」(developers.google.com/admob/android/privacy/play-data-disclosure, Google Mobile Ads SDK 25.5.0 기준, 2026-11-18 확인).</p>
+
+  <h2>4. 앱 평가 요청</h2>
+  <p>앱 안에서 가끔 Google Play 평가 창을 띄울 수 있습니다. 이 창은 Google Play가 직접 띄우고 처리하며, 앱은 사용자가 평가를 남겼는지나 그 내용을 알 수 없습니다.</p>
+
+  <h2>5. 보유 기간과 삭제</h2>
+  <ul>
+    <li>휴대폰 안의 기록은 사용자가 지울 때까지 남아 있습니다.</li>
+    <li>하루 기록은 앱의 하루 기록 화면에서 「이날 기록 지우기」로 지울 수 있습니다.</li>
+    <li>전체 기록은 휴대폰의 설정 &gt; 애플리케이션 &gt; 공수달력 &gt; 저장공간 &gt; 데이터 삭제, 또는 앱 삭제로 지울 수 있습니다. 2번의 Google 백업에 남은 사본은 사용자의 Google 계정 백업 설정에서 관리됩니다.</li>
+    <li>개발자는 사용자의 기록을 가지고 있지 않으므로, 개발자에게 따로 삭제를 요청할 정보가 없습니다. Google이 광고 SDK로 받은 정보는 Google의 정책에 따라 보관 · 삭제됩니다.</li>
+  </ul>
+
+  <h2>6. 제3자 제공 · 처리 위탁</h2>
+  <p>개발자는 사용자의 정보를 제3자에게 제공하거나 처리를 위탁하지 않습니다. 광고 SDK를 통해 Google이 직접 받는 정보는 위 3번과 같습니다.</p>
+
+  <h2>7. 아동</h2>
+  <p>이 앱은 일당을 받고 일하는 성인을 위해 만든 앱이며, 만 14세 미만 아동을 대상으로 하지 않습니다. 개발자는 아동의 개인정보를 따로 수집하지 않습니다.</p>
+
+  <h2>8. 이용자의 권리</h2>
+  <p>앱에 저장된 기록은 모두 사용자의 휴대폰 안에 있어, 사용자가 언제든 앱에서 확인 · 수정 · 삭제할 수 있습니다. 개인정보와 관련한 문의는 아래 연락처로 보내 주세요.</p>
+
+  <h2>9. 문의처</h2>
+  <table>
+    <tr><th>개발자</th><td>우주다람쥐</td></tr>
+    <tr><th>이메일</th><td><a href="mailto:leejj90@naver.com">leejj90@naver.com</a></td></tr>
+  </table>
+
+  <h2>10. 방침의 변경</h2>
+  <p>앱의 기능이나 광고 · 분석 도구가 바뀌어 처리하는 정보가 달라지면 이 방침을 고치고, 고친 날짜를 이 페이지에 적습니다.</p>
+  <p class="small">시행일: 2026년 11월 18일</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>지금 바다 개인정보처리방침</title>
+<style>
+  :root { color-scheme: light dark; --bg: #F3FAF9; --fg: #12302F; --sub: #4F6B69; --line: rgba(14,124,123,.18); --accent: #0E7C7B; --box: #FFFFFF; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0F1E1E; --fg: #E6F2F1; --sub: #A5BDBB; --line: rgba(160,220,218,.2); --accent: #5CC6C4; --box: #172B2B; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.7 -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; word-break: keep-all; overflow-wrap: anywhere; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 24px; line-height: 1.35; margin: 0 0 4px; }
+  .meta { color: var(--sub); font-size: 14px; margin: 0 0 24px; }
+  h2 { font-size: 18px; margin: 32px 0 8px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--accent); }
+  p, li { margin: 6px 0; }
+  ul { padding-left: 20px; }
+  .box { background: var(--box); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 8px 0; }
+  th, td { text-align: left; vertical-align: top; padding: 8px; border-bottom: 1px solid var(--line); }
+  th { color: var(--sub); font-weight: 600; white-space: nowrap; }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: 14px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+<h1>「지금 바다」 개인정보처리방침</h1>
+<p class="meta">개발자: 우주다람쥐 · 시행일: 2026년 11월 18일</p>
+
+<div class="box">
+  <strong>요약</strong>
+  <ul>
+    <li>회원가입·로그인이 없고, 이름·전화번호·이메일·위치 같은 정보를 앱이 묻거나 모으지 않습니다.</li>
+    <li>물때 정보를 받으려고 고른 지점의 코드를 개발자 서버에 보냅니다. 서버는 이 요청을 기록하거나 저장하지 않습니다.</li>
+    <li>화면 아래 배너 광고는 Google AdMob 이 보여 주며, Google 이 광고 ID 등 일부 정보를 수집합니다(아래 4).</li>
+  </ul>
+</div>
+
+<h2>1. 앱이 개발자 서버로 보내는 정보</h2>
+<p>앱은 물때·날씨 자료를 받기 위해 개발자가 운영하는 서버(<code>tide-time-proxy.leejj90.workers.dev</code>)에 요청을 보냅니다. 요청에 담기는 내용은 다음뿐입니다.</p>
+<table>
+  <tr><th>항목</th><td>사용자가 고른 지점의 코드(예: <code>DT_0018</code>), 조회할 날짜와 일수, 그 지점이 속한 바다 구역 코드</td></tr>
+  <tr><th>목적</th><td>국립해양조사원·기상청 자료를 받아 화면에 보여 주기</td></tr>
+  <tr><th>보관</th><td>서버 코드는 요청자 정보를 기록하거나 저장하지 않습니다. 서버가 저장하는 것은 지점·날짜별 공공 예보 자료(캐시)뿐이며, 누가 요청했는지와 연결되지 않습니다.</td></tr>
+</table>
+<p>지점 코드는 앱 목록에 있는 168곳 가운데 하나를 가리키는 공개 코드이며, 그것만으로 사용자를 알아볼 수 없습니다.</p>
+<p>인터넷 통신의 특성상 요청을 보낼 때 기기의 IP 주소와 앱(웹뷰)의 기본 요청 정보(브라우저 종류 등)가 서버 호스팅 업체에 전달됩니다. 이에 대해서는 아래 5를 보세요.</p>
+<p>서버는 받은 요청으로 공공데이터포털(data.go.kr)의 국립해양조사원·기상청 자료를 조회합니다. 이때 사용자의 IP 주소나 기기 정보는 공공데이터포털로 전달되지 않습니다.</p>
+
+<h2>2. 위치 정보</h2>
+<p>앱은 위치 권한을 요청하지 않으며 기기의 위치(GPS 등)를 사용하지 않습니다. 지점은 사용자가 목록에서 직접 고릅니다.</p>
+<p>앱이 요청하는 권한은 인터넷 연결(<code>INTERNET</code>)과 네트워크 상태 확인(<code>ACCESS_NETWORK_STATE</code>), 그리고 광고 SDK 가 쓰는 광고 ID 권한(<code>AD_ID</code>)입니다.</p>
+
+<h2>3. 기기에 저장하는 정보</h2>
+<ul>
+  <li>마지막으로 고른 지점과 물때 표기 방식(일반·7물때·8물때)을 기기 안(앱 전용 저장 공간)에 저장합니다. 다음에 앱을 열 때 같은 지점을 바로 보여 주기 위해서입니다.</li>
+  <li>이 값은 개발자 서버로 보내지 않습니다(위 1의 지점 코드 요청은 화면을 그릴 때마다 따로 보냅니다).</li>
+  <li>앱을 지우거나 Android 설정에서 「앱 데이터 삭제」를 하면 지워집니다.</li>
+  <li><strong>Android 자동 백업</strong>: 이 앱은 Android 의 자동 백업을 허용합니다(<code>allowBackup</code> 사용). 사용자가 기기에서 Google 백업을 켜 두었다면, 위 저장값이 사용자의 Google 계정 백업에 포함되어 새 기기로 옮겨질 수 있습니다. 이 백업은 Google 이 사용자 계정에 보관하며 개발자는 볼 수 없습니다. 기기 설정에서 백업을 끌 수 있습니다.</li>
+</ul>
+
+<h2>4. 광고 — Google AdMob</h2>
+<p>앱 화면 아래에 Google AdMob 배너 광고를 표시합니다. 광고를 보여 주기 위해 Google Mobile Ads SDK 가 다음 정보를 자동으로 수집해 Google 로 보냅니다(Google 공개 안내 기준).</p>
+<table>
+  <tr><th>IP 주소</th><td>기기의 대략적인 위치를 추정하는 데 쓰일 수 있음</td></tr>
+  <tr><th>앱 이용 기록</th><td>앱 실행, 광고 탭, 동영상 보기 등 상호작용</td></tr>
+  <tr><th>진단 정보</th><td>앱 실행 시간, 멈춤 비율, 전력 사용 등 앱·SDK 성능 정보</td></tr>
+  <tr><th>기기 식별자</th><td>Android 광고 ID, 앱 세트 ID</td></tr>
+</table>
+<p>목적: 광고 제공, 광고 분석, 부정 클릭 방지. Google 안내에 따르면 이 정보는 전송 중 TLS 로 암호화됩니다.</p>
+<p>광고 ID 는 Android 설정(설정 › 개인정보 보호 › 광고, 기기마다 메뉴 이름이 다를 수 있음)에서 재설정하거나 삭제할 수 있습니다.</p>
+<p>Google 의 정보 처리는 Google 의 정책을 따릅니다: <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>, <a href="https://policies.google.com/technologies/partner-sites">Google 파트너 사이트에서의 데이터 사용</a>.</p>
+
+<h2>5. 서버 호스팅 — Cloudflare</h2>
+<p>개발자 서버는 Cloudflare, Inc. 의 Cloudflare Workers 에서 운영됩니다. 앱의 요청이 서버에 닿을 때 Cloudflare 가 서비스 제공·보안(공격 차단 등)을 위해 IP 주소 등 통신 정보를 처리할 수 있으며, 이는 <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare 개인정보처리방침</a>을 따릅니다. 개발자는 이 서버에 요청 기록을 저장하는 설정을 하지 않았습니다.</p>
+
+<h2>6. 공유</h2>
+<p>「공유」를 누르면 지점·날짜·만조·간조 시각을 담은 글자가 Android 공유 화면으로 넘어가고, 사용자가 고른 앱으로만 전달됩니다. 개발자는 이 내용을 받지 않습니다.</p>
+
+<h2>7. 제3자 제공·판매</h2>
+<p>개발자는 사용자의 개인정보를 판매하거나 제3자에게 제공하지 않습니다. 위 4(Google 광고)와 5(Cloudflare 호스팅)는 앱을 운영하기 위해 쓰는 서비스입니다.</p>
+
+<h2>8. 보관과 파기</h2>
+<p>개발자가 별도로 보관하는 개인정보는 없습니다. 기기에 저장된 값은 앱 삭제·앱 데이터 삭제 시 지워집니다. Google 이 수집한 광고 관련 정보의 보관·삭제는 Google 정책을 따릅니다.</p>
+
+<h2>9. 아동</h2>
+<p>이 앱은 아동을 주 대상으로 하지 않습니다.</p>
+
+<h2>10. 이용자의 권리와 문의</h2>
+<p>개인정보와 관련한 문의, 열람·삭제 요청은 아래 이메일로 보내 주세요. 개발자는 사용자를 알아볼 수 있는 정보를 보관하지 않으므로, 대부분의 경우 앱 삭제 또는 앱 데이터 삭제로 기기 안의 정보가 모두 지워집니다.</p>
+<p>개인정보 보호 책임자·문의처: 우주다람쥐 · <a href="mailto:leejj90@naver.com">leejj90@naver.com</a></p>
+
+<h2>11. 데이터 출처</h2>
+<p>앱이 보여 주는 조석·조위·수온 자료는 국립해양조사원, 날씨·해상예보·기상특보 자료는 기상청이 공공데이터포털에 공개한 자료입니다. 이 앱은 해당 기관이 만들거나 후원하는 앱이 아닙니다.</p>
+
+<h2>12. 변경</h2>
+<p>이 방침이 바뀌면 이 페이지에 새 시행일과 함께 알립니다.</p>
+<p class="meta">시행일: 2026년 11월 18일</p>
+</main>
+</body>
+</html>
